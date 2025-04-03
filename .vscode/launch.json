@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "preLaunchTask": "${defaultBuildTask}",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "probe_rs Executable Test",
+            "flashingConfig": {
+                "flashingEnabled": true,
+            },
+            //!MODIFY
+            "chip": "STM32L443RC",
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "target/thumbv7em-none-eabi/debug/mpr",
+                    "rttEnabled": true,
+                    "rttChannelFormats": [
+                        {
+                            "channelNumber": 0,
+                            // Format RTT data as String data
+                            "dataFormat": "String",
+                            // Include host-side timestamps for every line of data transferred from the target RTT output
+                            "showTimestamps": true
+                        },
+                        {
+                            "channelNumber": 1,
+                            // Treat data as raw binary data, and do not format in any way
+                            "dataFormat": "BinaryLE"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

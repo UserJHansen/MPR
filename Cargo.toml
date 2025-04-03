@@ -1,0 +1,49 @@
+[package]
+name = "mpr"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bme280 = { version = "0.5.1", default-features = false, features = [
+    "defmt",
+    "async",
+] }
+lora-phy = { path = "lora-rs/lora-phy", features = ["defmt-03"] }
+ublox-core = { git = "https://github.com/tstellanova/ublox-core" }
+
+embassy-stm32 = { version = "0.2.0", features = [
+    "defmt",
+    "unstable-pac",
+    "stm32l443rc",
+    "memory-x",
+    "time-driver-any",
+    "exti",
+    "chrono",
+] }
+embassy-sync = { version = "0.6.2", features = ["defmt"] }
+embassy-executor = { version = "0.7.0", features = [
+    "arch-cortex-m",
+    "executor-thread",
+    "defmt",
+    "trace",
+] }
+embassy-time = { version = "0.4.0", features = [
+    "defmt",
+    "defmt-timestamp-uptime",
+    "tick-hz-32_768",
+] }
+embassy-embedded-hal = { version = "0.3.0" }
+embassy-futures = { version = "0.1.0" }
+
+defmt = "1.0"
+defmt-rtt = "1.0"
+
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.0"
+embedded-hal = "1.0"
+embedded-hal-async = { version = "1.0" }
+embedded-hal-bus = { version = "0.3", features = ["async"] }
+panic-probe = { version = "1.0", features = ["print-defmt"] }
+chrono = { version = "^0.4", default-features = false }
+rand = { version = "0.9", default-features = false }
+static_cell = "2"
