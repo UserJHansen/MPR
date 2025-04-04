@@ -10,7 +10,7 @@
                 "flashingEnabled": true,
             },
             //!MODIFY
-            "chip": "STM32L443RC",
+            "chip": "STM32L433RC",
             "coreConfigs": [
                 {
                     "coreIndex": 0,
